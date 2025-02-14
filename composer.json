@@ -1,0 +1,23 @@
+{
+    "name": "employer/promotional-discount",
+    "description": "Promotional campaign providing discounts.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tarique Iqbal",
+            "email": "live.iqbal@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PromotionalDiscount\\": "src/PromotionalDiscount/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
