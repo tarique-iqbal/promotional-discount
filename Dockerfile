@@ -17,8 +17,8 @@ RUN echo "zend_extension=xdebug.so" >> /etc/php/8.4/cli/conf.d/20-xdebug.ini && 
 # Set working directory
 WORKDIR /var/www/promotional-discount
 
-# Copy composer.json and install dependencies
-COPY ./composer.json composer.json
+# Copy composer.json, composer.lock and install dependencies
+COPY composer.json composer.lock ./
 RUN composer install
 
 # Copy rest of the application
