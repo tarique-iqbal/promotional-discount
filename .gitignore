@@ -2,3 +2,6 @@
 /.idea
 /vendor/
 /.php-cs-fixer.cache
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
