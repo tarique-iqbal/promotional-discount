@@ -1,22 +1,22 @@
 {
     "product": {
         "1": {
-            "code": "001",
+            "code": "101",
             "name": "Curry Sauce",
-            "price": "1.95",
-            "reduce_price": "NULL"
+            "price": 1.95,
+            "reduce_price": null
         },
         "2": {
-            "code": "002",
+            "code": "102",
             "name": "Pizza",
-            "price": "5.99",
-            "reduce_price": "3.99"
+            "price": 5.99,
+            "reduce_price": 3.99
         },
         "3": {
-            "code": "003",
+            "code": "103",
             "name": "Men’s T-Shirt",
-            "price": "25.00",
-            "reduce_price": "NULL"
+            "price": 25.00,
+            "reduce_price": null
         }
     }
 }
