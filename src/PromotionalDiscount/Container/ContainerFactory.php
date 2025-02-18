@@ -6,6 +6,7 @@ namespace PromotionalDiscount\Container;
 
 use Pimple\Container;
 use PromotionalDiscount\Repository\ProductRepository;
+use PromotionalDiscount\Service\BasketService;
 use PromotionalDiscount\Service\ConfigService;
 use PromotionalDiscount\Service\PriceCalculator;
 
@@ -31,6 +32,13 @@ readonly class ContainerFactory
 
         $container['PriceCalculator'] = function () {
             return new PriceCalculator();
+        };
+
+        $container['BasketService'] = function (Container $c) {
+            return new BasketService(
+                $c['ProductRepository'],
+                $c['PriceCalculator'],
+            );
         };
 
         return $container;

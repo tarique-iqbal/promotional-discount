@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Pimple\Container;
 use PromotionalDiscount\Container\ContainerFactory;
 use PromotionalDiscount\Repository\ProductRepository;
+use PromotionalDiscount\Service\BasketService;
 use PromotionalDiscount\Service\ConfigService;
 
 class ContainerFactoryTest extends TestCase
@@ -21,5 +22,6 @@ class ContainerFactoryTest extends TestCase
         $this->assertInstanceOf(Container::class, $container);
         $this->assertInstanceOf(ConfigService::class, $container['ConfigService']);
         $this->assertInstanceOf(ProductRepository::class, $container['ProductRepository']);
+        $this->assertInstanceOf(BasketService::class, $container['BasketService']);
     }
 }
