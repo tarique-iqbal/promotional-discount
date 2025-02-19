@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PromotionalDiscount\Container;
 
 use Pimple\Container;
+use PromotionalDiscount\Factory\PromotionalRulesFactory;
 use PromotionalDiscount\Repository\ProductRepository;
 use PromotionalDiscount\Service\BasketService;
 use PromotionalDiscount\Service\ConfigService;
 use PromotionalDiscount\Service\PriceCalculator;
 
-readonly class ContainerFactory
+final readonly class ContainerFactory
 {
     public function __construct(private array $config)
     {
@@ -38,6 +39,14 @@ readonly class ContainerFactory
             return new BasketService(
                 $c['ProductRepository'],
                 $c['PriceCalculator'],
+            );
+        };
+
+        $container['PromotionalRulesFactory'] = function (Container $c) {
+            return new PromotionalRulesFactory(
+                $c['PriceCalculator'],
+                $c['BasketService'],
+                $c['ProductRepository']
             );
         };
 
