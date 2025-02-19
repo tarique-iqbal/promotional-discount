@@ -6,10 +6,13 @@ namespace PromotionalDiscount\Container;
 
 use Pimple\Container;
 use PromotionalDiscount\Factory\PromotionalRulesFactory;
+use PromotionalDiscount\PromotionalDiscountApplication;
 use PromotionalDiscount\Repository\ProductRepository;
 use PromotionalDiscount\Service\BasketService;
 use PromotionalDiscount\Service\ConfigService;
+use PromotionalDiscount\Service\CurrencyService;
 use PromotionalDiscount\Service\PriceCalculator;
+use PromotionalDiscount\Service\PromotionEngineService;
 
 final readonly class ContainerFactory
 {
@@ -47,6 +50,24 @@ final readonly class ContainerFactory
                 $c['PriceCalculator'],
                 $c['BasketService'],
                 $c['ProductRepository']
+            );
+        };
+
+        $container['CurrencyService'] = function () {
+            return new CurrencyService();
+        };
+
+        $container['PromotionEngineService'] = function () {
+            return new PromotionEngineService();
+        };
+
+        $container['PromotionalDiscountApplication'] = function (Container $c) {
+            return new PromotionalDiscountApplication(
+                $c['BasketService'],
+                $c['CurrencyService'],
+                $c['PriceCalculator'],
+                $c['PromotionalRulesFactory'],
+                $c['PromotionEngineService']
             );
         };
 
