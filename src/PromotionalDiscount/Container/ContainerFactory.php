@@ -6,6 +6,7 @@ namespace PromotionalDiscount\Container;
 
 use Pimple\Container;
 use PromotionalDiscount\Factory\PromotionalRulesFactory;
+use PromotionalDiscount\Handler\ExceptionHandler;
 use PromotionalDiscount\PromotionalDiscountApplication;
 use PromotionalDiscount\Repository\ProductRepository;
 use PromotionalDiscount\Service\BasketService;
@@ -68,6 +69,12 @@ final readonly class ContainerFactory
                 $c['PriceCalculator'],
                 $c['PromotionalRulesFactory'],
                 $c['PromotionEngineService']
+            );
+        };
+
+        $container['ExceptionHandler'] = function (Container $c) {
+            return new ExceptionHandler(
+                $c['ConfigService'],
             );
         };
 

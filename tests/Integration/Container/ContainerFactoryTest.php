@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Pimple\Container;
 use PromotionalDiscount\Container\ContainerFactory;
 use PromotionalDiscount\Factory\PromotionalRulesFactory;
+use PromotionalDiscount\Handler\ExceptionHandler;
 use PromotionalDiscount\PromotionalDiscountApplication;
 use PromotionalDiscount\Repository\ProductRepository;
 use PromotionalDiscount\Service\BasketService;
@@ -31,5 +32,6 @@ class ContainerFactoryTest extends TestCase
         $this->assertInstanceOf(CurrencyService::class, $container['CurrencyService']);
         $this->assertInstanceOf(PromotionEngineService::class, $container['PromotionEngineService']);
         $this->assertInstanceOf(PromotionalDiscountApplication::class, $container['PromotionalDiscountApplication']);
+        $this->assertInstanceOf(ExceptionHandler::class, $container['ExceptionHandler']);
     }
 }
