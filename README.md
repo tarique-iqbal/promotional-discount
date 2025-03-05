@@ -32,6 +32,10 @@ A small command-line utility to apply certain promotional campaigns to give disc
 composer
 php (>=8.4)
 ```
+OR
+```
+Docker (if you choose to use it)
+```
 
 ## Installation and Run the script
 - All the `code` required to get started
@@ -64,3 +68,17 @@ $ ./vendor/bin/phpunit tests
 ```
 
 Test-cases, test unit and integration tests.
+
+## Run the script in a Docker container
+- Build the Docker Image
+```shell
+$ docker build --no-cache -t promotional_discount .
+```
+
+- Run the Container and script
+```shell
+$ docker run -it --rm promotional_discount
+$ php index.php
+€31.44
+$ ./vendor/bin/phpunit tests
+```
